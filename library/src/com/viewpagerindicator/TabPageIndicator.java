@@ -37,6 +37,30 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  */
 public class TabPageIndicator extends HorizontalScrollView implements PageIndicator {
 
+
+    /**
+     * Constants to improve readability - no magic numbers.
+     */
+    public final static int LOCATION_LEFT =0;
+    public final static int LOCATION_UP = 1;
+    public final static int LOCATION_RIGHT = 2;
+    public final static int LOCATION_BOTTOM =3;
+
+    /**
+     * Stores the location of the tab icon
+     */
+    private int location = LOCATION_LEFT;
+
+    /**
+     * Used to store the icon.
+     */
+    private int [] drawables = new int [4];
+
+    /**
+     * Holds the value used by setCompoundDrawablesWithIntrinsicBounds used to denote no icon.
+     */
+    private static int NO_ICON = 0;
+
     /**
      * Interface for a callback when the selected tab has been reselected.
      */
@@ -98,6 +122,15 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
     public void setTypeface(Typeface typeface) {
         mTypeface = typeface;
         notifyDataSetChanged();
+    }
+
+    public void setTabIconLocation (int newLocation){
+        if (location > LOCATION_BOTTOM || location < LOCATION_LEFT)
+            throw new IllegalArgumentException ("Invalid location");
+        this.location = newLocation;
+        for (int x = 0; x < drawables.length;x++){
+            drawables [x] = NO_ICON;
+        }
     }
 
     public void setOnTabReselectedListener(OnTabReselectedListener listener) {
@@ -173,7 +206,8 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
         tabView.setTypeface(mTypeface);
 
         if (iconResId != 0) {
-            tabView.setCompoundDrawablesWithIntrinsicBounds(iconResId, 0, 0, 0);
+            drawables [location] = iconResId;
+            tabView.setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], drawables[2], drawables[3]);
         }
 
         mTabLayout.addView(tabView, new LinearLayout.LayoutParams(0, MATCH_PARENT, 1));
