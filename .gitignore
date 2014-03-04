@@ -1,8 +1,23 @@
 *~
-.gradle
 build
 gen
 bin
+#Eclipse
+.project
+.classpath
+.settings
+
+#IntelliJ IDEA
+.idea
+*.iml
+classes
+out
+
+#Maven
+target
+release.properties
+pom.xml.*
+
 local.properties
 .gradle
 *.apk
@@ -14,7 +29,6 @@ local.properties
 gen-external-apklibs/
 target
 classes/
-./gitignore
 project.properties
 signing.properties
 *.iml
