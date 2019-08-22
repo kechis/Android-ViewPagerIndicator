@@ -4,7 +4,6 @@ Android ViewPagerIndicator
 Paging indicator widgets that are compatible with the `ViewPager` from the
 [Android Support Library][2] to improve discoverability of content.
 
-Try out the sample application [on the Android Market][10].
 
 ![ViewPagerIndicator Sample Screenshots][9]
 
@@ -66,18 +65,22 @@ Android-ViewPagerIndicator is presented as an [Android library project][7]. A
 standalone JAR is not possible due to the theming capabilities offered by the
 indicator widgets.
 
-You can include this project by [referencing it as a library project][8] in
-Eclipse or ant.
+
+
+Add jcenter() to your gradle and:
+
+implamentation 'com.kechis:viewpagerindicator:1.0.0'
+
 
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
 
     <dependency>
-      <groupId>com.viewpagerindicator</groupId>
-      <artifactId>library</artifactId>
-      <version>2.4.1</version>
-      <type>apklib</type>
-    </dependency>
+      <groupId>com.kechis</groupId>
+      <artifactId>viewpagerindicator</artifactId>
+      <version>1.0.0</version>
+      <type>pom</type>
+   </dependency>
 
 This project depends on the `ViewPager` class which is available in the
 [Android Support Library][2] or [ActionBarSherlock][3]. Details for
@@ -90,6 +93,13 @@ Developed By
 ============
 
  * Jake Wharton - <jakewharton@gmail.com>
+ 
+
+Updated By
+============
+
+ * Francisco Javier Martin Bueno - <kechis@gmail.com>
+ 
 
 
 Credits
