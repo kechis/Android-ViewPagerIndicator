@@ -1,8 +1,10 @@
 package com.viewpagerindicator.sample;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.widget.Toast;
+
+import androidx.viewpager.widget.ViewPager;
+
 import com.viewpagerindicator.CirclePageIndicator;
 
 public class SampleCirclesWithListener extends BaseSampleActivity {
